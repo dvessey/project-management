@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.damon.pma.dao.EmployeeRepository;
 import com.damon.pma.dao.ProjectRepository;
+import com.damon.pma.dao.UserAccountRepository;
 import com.damon.pma.dto.ChartData;
 import com.damon.pma.dto.EmployeeProject;
 import com.damon.pma.entities.Project;
+import com.damon.pma.entities.UserAccount;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,10 +32,14 @@ public class HomeController {
 	@Autowired
 	EmployeeRepository empRepo;
 	
+	@Autowired
+	UserAccountRepository userAccountRepo;
+	
 	@GetMapping("/")
 	public String displayHome(Model model) throws JsonProcessingException {
 		
 		model.addAttribute("versionNumber", ver);
+		
 		
 		Map<String, Object> map = new HashMap<>();
 		

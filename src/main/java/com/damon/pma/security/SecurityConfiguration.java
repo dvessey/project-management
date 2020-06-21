@@ -41,9 +41,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers("/employees/save").hasAuthority("ADMIN")
 		//.antMatchers("/h2_console/**").permitAll()
 		.antMatchers("/", "/**").permitAll()
+		.antMatchers("/security/register").permitAll()
 		.and()
-		.formLogin()
-		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login"); //formLogin().loginPage("/login-page") would be used for a custom login page
+		.formLogin().loginPage("/security/login").failureUrl("/security/login-error").permitAll()
+		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/security/login").permitAll(); //formLogin().loginPage("/login-page") would be used for a custom login page
 		
 		//used just for h2 console to work never use in production
 		//http.csrf().disable();

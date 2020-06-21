@@ -8,5 +8,7 @@ import com.damon.pma.entities.UserAccount;
 @RepositoryRestResource(collectionResourceRel="apiuseraccounts", path="useraccounts")
 
 public interface UserAccountRepository extends CrudRepository<UserAccount, Long> {
+	
+	public UserAccount findByUserId(long id);
 
 }

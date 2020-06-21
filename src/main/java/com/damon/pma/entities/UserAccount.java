@@ -13,6 +13,7 @@ public class UserAccount {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator="user_accounts_seq")
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="user_accounts_seq")
 	@Column(name = "user_id")
 	private long userId;
 	
@@ -21,11 +22,21 @@ public class UserAccount {
 	
 	private String email;
 	private String password;
+	private String role;
 	
+
 	private boolean enabled = true;
 	
 	public UserAccount() {
 		
+	}
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public long getUserId() {

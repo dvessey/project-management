@@ -1,11 +1,11 @@
-FROM ubuntu-jdk
+FROM dvessey/ubuntu-jdk13-project-management-app:latest 
 
-MAINTAINER Damon Vessey
+MAINTAINER Damon Vessey "dvessey2008@gmail.com"
 
-ENV version=docker
-ENV dbuser
-ENV dbpass
-ENV jdbcurl
+ENV version=0.0.1
+ENV dbuser=postgres
+ENV dbpass=password321
+ENV jdbcurl=jdbc:postgresql://pma-postges-db.cuwlvffd8dag.us-east-2.rds.amazonaws.com:5432/pmaDB
 
 WORKDIR /usr/local/bin
 

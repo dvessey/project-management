@@ -11,20 +11,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.damon.pma.validators.UniqueValue;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
 
 @Entity
+@Table(name="employee")
 public class Employee {
 
 	@Id
 	//@GeneratedValue(strategy=GenerationType.AUTO) //this would be used if relying on java code to seed database
-	@GeneratedValue(strategy=GenerationType.IDENTITY) //this is used when seeding database with data.sql
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="employee_seq") //this is used when seeding database with data.sql
 	//@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="employee_seq") //faster than identity hibernate uses batch updates
 	private long employeeId;
 	
